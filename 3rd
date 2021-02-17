@@ -1,0 +1,89 @@
+<?php //php 7.2.24
+
+class Triangle{
+    public $area;
+    public $footing;
+    public $heidth;
+    
+    public function Area($footing, $heidth){
+    $area = ($footing*$heidth)/2;
+        echo $area;
+    }
+    }
+    
+class Rectangle{
+    public $area;
+    public $width;
+    public $heidth;
+    
+    public function Area($width, $heidth){
+    $area = $width*$heidth;
+        echo $area;
+    }
+}
+
+class Circle{
+    public $area;
+    public $rad;
+    
+    public function Area($rad){
+    $area = $rad*3.14*3.14;
+        echo $area;
+    }
+    }
+
+function inputFile($x1, $x2){
+    $fp = fopen("file.txt", "a");
+    fwrite($fp, $x1);
+    fwrite($fp, $x2);
+    fclose($fp);
+}
+
+function choice($mas){
+    
+ $i = rand(1, 3);
+ switch ($i) {
+    case 1:
+        echo "Circle",PHP_EOL;
+        $a = new Circle();
+        $a->rad = rand(1, 10);
+        $a->Area($a->rad);
+        array_push( $mas, $a );
+        //inputFile($a->rad,1);
+        break;
+    case 2:
+        echo "Rectangle",PHP_EOL;
+        $a = new Rectangle();
+        $a->width = rand(1, 10);
+        $a->heidth = rand(1, 10);
+        $a->Area($a->width, $a->heidth);
+        array_push( $mas, $a );
+        //inputFile($x->width,$x->heidth);
+        break;
+    case 3:
+        echo "Triangle",PHP_EOL;
+        $a = new Triangle();
+        $a->footing = rand(1, 10);
+        $a->heidth = rand(1, 10);
+        $a->Area($a->footing, $a->heidth);
+         array_push( $mas, $a );
+        //inputFile($b->footing,$b->heidth);
+        break;
+}
+}
+
+$mas = array();
+for( $i=0; $i < (3); $i++ ){
+echo PHP_EOL;
+choice($mas);
+}
+
+asort($mas->area);
+for( $i=0; $i < (3); $i++ ){
+echo $mas[i]->area;
+echo PHP_EOL;
+}
+
+
+   
+?>
